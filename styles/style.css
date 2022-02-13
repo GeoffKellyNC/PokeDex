@@ -3,6 +3,11 @@
    License: none (public domain)
 */
 
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,6 +27,20 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+}
+
+header{
+	background-color: #FFDE00; 
+	height: 25vh;
+
+}
+
+.header h1{
+	text-align: center;
+	padding-top: 7.5%;
+	font-size: 3em;
+	font-family: 'VT323', monospace;
+
 }
 
 

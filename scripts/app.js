@@ -3,8 +3,22 @@ import axios from 'axios';
 console.log("It's working!");
 
 
-const pokemonName = 'charizard';
 
+//? Pokemon you want data for
+const pokemonName = 'cyndaquil';
+
+
+//? Getting poke info from PokeAPI using Axios
+const getPokeInfo = (name) => {
+  axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+    .then(res => {
+      console.log(res.data);
+      document.querySelector(".container").prepend(pokeCardInfo(res.data))
+    })
+    .catch(err => console.log(err));
+}
+
+//? Create Poke Info Card
 
 const pokeCardInfo = ({
   name,
@@ -44,15 +58,9 @@ const pokeCardInfo = ({
 }
 
 
-const getPokeInfo = (name) => {
-  axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-    .then(res => {
-      document.querySelector(".container").prepend(pokeCardInfo(res.data))
-    })
-    .catch(err => console.log(err));
-}
 
 
+//? Create Abilities Card
 const createAbilityCard = () => {
 
   const abilityCard = document.createElement('div');
@@ -91,3 +99,4 @@ const createAbilityCard = () => {
 
   getPokeInfo(pokemonName)
   createAbilityCard();
+
