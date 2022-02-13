@@ -29,6 +29,7 @@ time, mark, audio, video {
 	display:flex;
 	flex-direction: column;
 	align-items:center;
+	
 }
 
 .poke-img{
@@ -38,6 +39,7 @@ time, mark, audio, video {
 
 .poke-name{
 	font-weight: bold;
+	color: red;
 }
 
 .info{
@@ -53,6 +55,10 @@ time, mark, audio, video {
 
 .ability-header{
 	font-size: 1.4rem;
+}
+
+.ability{
+	margin: 2%;
 }
 
 

@@ -3,7 +3,8 @@ import axios from 'axios';
 console.log("It's working!");
 
 
-const pokemonName = 'pikachu';
+const pokemonName = 'charizard';
+
 
 const pokeCardInfo = ({
   name,
@@ -17,9 +18,15 @@ const pokeCardInfo = ({
   const pokeHeight = document.createElement("p")
   const pokeWeight = document.createElement("p")
 
+  axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+  .then(res => {
+    const pokeId = res.data.id;
+    pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeId}.png`
+  })
+  .catch(err => console.log(err));
+
   infoCard.classList.add("card-container")
   pokeImg.classList.add("poke-img");
-  pokeImg.src = "https://www.freepnglogos.com/uploads/pokemon-symbol-logo-png-31.png"
   pokeName.classList.add("poke-name", "info");
   pokeHeight.classList.add("poke-height", "info");
   pokeWeight.classList.add("poke-weight", "info");
@@ -60,9 +67,7 @@ const createAbilityCard = () => {
 
   axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
     .then(res => {
-      console.log(res.data.abilities)
       res.data.abilities.forEach(ability => {
-        console.log(ability.ability.name)
         const abilityTitle = document.createElement("h2")
 
         abilityTitle.textContent = ability.ability.name;
@@ -76,6 +81,9 @@ const createAbilityCard = () => {
 
   return abilityCard;
 }
+
+
+
 
 
 
